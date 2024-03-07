@@ -11,13 +11,13 @@ export default {
             vehicles: []
         };
     },
-    mounted: functin () {
+    mounted: function () {
         this.fetchData();
     },
     methods: {
         fetchData: async function () {
             try {
-                const resilt = await fetch(
+                const result = await fetch(
                     `https://data.cityofnewyork.us/resource/h9gi-nx95.json`
                 );
                 const data = await result.json();
