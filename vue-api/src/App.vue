@@ -4,6 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
+<BarChart />
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -19,6 +20,16 @@ import HelloWorld from './components/HelloWorld.vue'
 
   <RouterView />
 </template>
+
+<script>
+import BarChart from 'path/to/component/BarChart'
+
+export default {
+  name: 'App',
+  components: { BarChart }
+}
+</script>
+
 
 <style scoped>
 header {
