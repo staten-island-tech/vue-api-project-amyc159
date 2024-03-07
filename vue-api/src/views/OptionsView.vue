@@ -19,11 +19,17 @@ export default {
             try {
                 const resilt = await fetch(
                     `https://data.cityofnewyork.us/resource/h9gi-nx95.json`
-                )
+                );
+                const data = await result.json();
+                this.vehicles = data.results;
+
+                //return vehicles
+            } catch (error) {
+                console.log(error);
             }
-        }
-    }
-}
+        },
+    },
+};
 </script>
 
 <style scoped>
