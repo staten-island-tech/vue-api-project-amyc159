@@ -22,7 +22,7 @@ export default {
                 );
                 const data = await result.json();
                 this.vehicles = data.results;
-
+                
                 //return vehicles
             } catch (error) {
                 console.log(error);
