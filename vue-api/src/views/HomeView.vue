@@ -1,7 +1,7 @@
+<!-- Composite -->
+
 <script setup>
 import {ref, onMounted} from 'vue'
-<<<<<<< Updated upstream
-=======
 
 const vehicle = ref('')
 
@@ -14,7 +14,6 @@ onMounted(() => {
   getData()
 })
 
->>>>>>> Stashed changes
 </script>
 
 <style scoped>
