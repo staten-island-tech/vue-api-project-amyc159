@@ -1,12 +1,21 @@
+<!-- Composite -->
+
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
 import {ref, onMounted} from 'vue'
 
 const vehicle = ref('')
+
+async function getData() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
+  let data = await res.json()
+  vehicle.value = data.results
+}
+onMounted(() => {
+  getData()
+})
+
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+<style scoped>
+
+</style>
