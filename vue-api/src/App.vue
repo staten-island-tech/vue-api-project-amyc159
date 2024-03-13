@@ -1,10 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-<BarChart />
+<BarChart/>
   <header>
     <div class="wrapper">
       <nav>
@@ -13,8 +12,8 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header>
-
   <RouterView />
+  
 </template>
 
 <script>

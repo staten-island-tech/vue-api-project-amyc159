@@ -1,7 +1,33 @@
 <!-- Composite -->
+<template>
+  <BarChart aria-describedby="my-data-table" />
+  <table id="my-data-table">
+    <caption>Motor Vehicle Collisions within the Boroughs</caption>
+    <thead>
+      <tr>
+        <th>Brooklyn</th>
+        <th>Bronx</th>
+        <th>Manhattan</th>
+        <th>Staten Island</th>
+        <th>Queens</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>987</td>
+        <td>1209</td>
+        <td>825</td>
+        <td>777</td>
+        <td> 987</td>
+      </tr>
+    </tbody>
+  </table>
+</template>
 
-<script setup>
+<script>
 import {ref, onMounted} from 'vue'
+
+
 
 const vehicle = ref('')
 
