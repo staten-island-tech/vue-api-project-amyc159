@@ -17,11 +17,9 @@ export default {
     methods: {
         fetchData: async function () {
             try {
-                const result = await fetch(
-                    `https://data.cityofnewyork.us/resource/h9gi-nx95.json`
-                );
-                const data = await result.json();
-                this.vehicles = data.results;
+                const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json');
+                const data = await response.json();
+                this.vehicles = data.response;
                 
                 //return vehicles
             } catch (error) {
