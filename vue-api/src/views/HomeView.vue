@@ -1,23 +1,37 @@
-<!-- Composite -->
+<template>
+  <div class="container">
+    <Bar v-if="loaded" :data="chartData" />
+  </div>
+</template>
 
-<script setup>
+<script>
 import {ref, onMounted} from 'vue'
-import BarChart from '@/components/BarChart.vue';
+import { Bar } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-const vehicle = ref('')
+export default {
+  name: 'BarChart',
+  components: { Bar },
+  data: () => ({
+    loaded: false,
+    chartData: null
+  }),
+  //?
+  async onMounted () {
+    this.loaded = false
 
-async function getData() {
-  let res = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
-  let data = await res.json()
-  vehicle.value = data.results
-  console.log(vehicle.value)
-  return vehicle
-} catch(error) {
-  console.log(error)
+    try {
+      const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
+      const data = await response.json
+      console.log(data)
+      this.loaded = true
+      
+    } catch (e) {
+      console.error(e)
+    }
+  }
 }
-onMounted(() => {
-  getData()
-})
 
 </script>
 
