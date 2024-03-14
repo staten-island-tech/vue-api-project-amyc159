@@ -1,4 +1,3 @@
-<!-- Composite -->
 <template>
   <BarChart aria-describedby="my-data-table" />
   <table id="my-data-table">
@@ -29,7 +28,7 @@ import {ref, onMounted} from 'vue'
 
 
 
-const vehicle = ref('')
+/* const vehicle = ref('')
 
 async function getData() {
   let res = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
@@ -38,8 +37,7 @@ async function getData() {
 }
 onMounted(() => {
   getData()
-})
-
+}) */
 </script>
 
 <style scoped>
