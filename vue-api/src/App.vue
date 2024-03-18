@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import BarChart from 'path/to/component/BarChart'
-
+//import BarChart from '../views/BarChart' 'path/to/Component/BarChart'
+/* 
 export default {
   name: 'App',
   components: { BarChart }
-}
+} */
 </script>
 
 
