@@ -23,10 +23,28 @@ export default {
 
     try {
       const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
-      const data = await response.json
+      const data = await response.json();
+      const crashlocation = data.reduce((beep, boop) => {
+        const borough = boop.borough;
+        if(borough === "BROOKLYN"){
+          //brooklyn count++
+        } else if(borough === "MANHATTAN"){
+          //manhattan count++
+        } else if(borough === "QUEENS"){
+          //queens count++
+        } else if(borough === "BRONX"){
+          //bronx count++
+        } else if(borough === "STATEN ISLAND"){
+          //staten island count++
+        } else {
+          
+        }
+        }
+      })
       console.log(data)
+
+
       this.loaded = true
-      
     } catch (e) {
       console.error(e)
     }
