@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CrashData from '../views/CrashData.vue'
 import BarChart from '../views/BarChart.vue'
-import DoughNut from '../views/DoughNut.vue'
 
 
 const router = createRouter({
@@ -22,11 +21,6 @@ const router = createRouter({
       path: '/bar',
       name: 'Bar Chart',
       component: BarChart
-    },
-    {
-      path: '/doughnut',
-      name: 'Doughnut',
-      component: DoughNut
     }
   ]
 })

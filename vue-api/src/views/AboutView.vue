@@ -1,14 +1,9 @@
 <template>
-    <h1>Heck yes</h1>
-  <Doughnut
-  id="my-chart2-id"
-      :options="chartOptions"
-      :data="chartData"
-    />
-  </template>
-  
-  <script>
-  import { Doughnut } from 'vue-chartjs'
+
+</template>
+
+<script>
+/* import { Doughnut } from 'vue-chartjs'
 
 export default {
     name: 'FirmChart',
@@ -50,6 +45,5 @@ export default {
     created() {
         this.$store.dispatch('retrieveEngagementsChartData')
     }
-}
-  </script>
-  
+} */
+</script>
