@@ -1,4 +1,5 @@
 <template>
+  <h1>Hella</h1>
 <Bar
 id="my-chart-id"
     :options="chartOptions"

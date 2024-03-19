@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { Doughnut } from 'vue-chartjs'
+/* import { Doughnut } from 'vue-chartjs'
 
 export default {
     name: 'FirmChart',
@@ -45,5 +45,5 @@ export default {
     created() {
         this.$store.dispatch('retrieveEngagementsChartData')
     }
-}
+} */
 </script>

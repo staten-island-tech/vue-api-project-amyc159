@@ -4,7 +4,8 @@
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/crashdata">Data</RouterLink>
+        <RouterLink to="/bar">Bar Chart</RouterLink>
       </nav>
     </div>
   </header>
