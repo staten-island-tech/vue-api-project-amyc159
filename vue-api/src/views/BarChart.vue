@@ -1,5 +1,5 @@
 <template>
-  <h1>Hella</h1>
+  <h1>Hell yea</h1>
 <Bar
 id="my-chart-id"
     :options="chartOptions"
@@ -18,8 +18,8 @@ export default {
   data() {
     return {
       chartData: {
-        labels: [ 'January', 'February', 'March' ],
-        datasets: [ { data: [40, 20, 12] } ]
+        labels: [ 'Brooklyn', 'Bronx', 'Queens', 'Manhattan', 'Staten Island' ],
+        datasets: [ { data: [40, 20, 12, 3, 19] } ]
       },
       chartOptions: {
         responsive: true
