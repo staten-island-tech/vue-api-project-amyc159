@@ -18,9 +18,19 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/bar2',
+      name: 'bar2',
+      component: () => import('../views/BarView.vue')
+    },
+    {
       path: '/bar',
       name: 'bar',
-      component: () => import('../views/BarView.vue')
+      component: () => import('../views/BarChart.vue')
+    },
+    {
+      path: '/circle',
+      name: 'circle',
+      component: () => import('../views/CircleView.vue')
     },
   ]
 })
