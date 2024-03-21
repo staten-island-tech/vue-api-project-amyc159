@@ -19,7 +19,7 @@ export default {
     return {
       chartData: {
         labels: [ 'Brooklyn', 'Bronx', 'Queens', 'Manhattan', 'Staten Island' ],
-        datasets: [ { data: [40, 20, 12, 3, 19] } ]
+        datasets: [ {backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'], data: [40, 20, 12, 3, 19] } ]
       },
       chartOptions: {
         responsive: true

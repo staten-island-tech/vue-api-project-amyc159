@@ -1,2 +1,2 @@
 const chartInstance = this.$refs.bar.chart
-import { Bar } from 'vue-chartjs'
+const chart2Instance = this.$refs.doughnut.chart2
