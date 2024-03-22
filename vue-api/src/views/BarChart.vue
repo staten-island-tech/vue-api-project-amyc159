@@ -1,5 +1,5 @@
 <template>
-    <h1>Number of Accidents in Each Borough</h1>
+    <h1>Car Wham Whams</h1>
   <Bar
       id="my-chart-id"
       :options="chartOptions"
@@ -18,22 +18,43 @@
     data() {
       return {
         chartData: {
-          labels: [ 'Brooklyn', 'Bronx', 'Queens', 'Manhattan', 'Staten Island' ],
-          datasets: [{ 
-              data: [40, 20, 12, 50, 19], 
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
+            labels: [ 
+                'Brooklyn',
+                'Bronx', 
+                'Queens', 
+                'Manhattan', 
+                'Staten Island' 
+            ],
+            datasets: [{ 
+                label: 'Number of Accidents in Each Borough',
+                data: [], 
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
               ],
           }]
+          
         },
         chartOptions: {
           responsive: true
         }
       }
+    },
+    async mounted() {
+        try {
+            const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
+            let data = await response.json()
+            
+            const brooklyn = data.filter((location) => location.borough === 'BROOKLYN')
+            this.chartData.datasets[0].DataTransfer.pushScopeId(brooklyn.length
+            )
+        }catch (e) {
+            console.error(e)
+        }
+        console.log(this.chartData)
     }
   }
   </script>
