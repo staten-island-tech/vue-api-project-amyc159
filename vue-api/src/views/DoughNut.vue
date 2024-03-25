@@ -1,15 +1,15 @@
 <template>
   <h1>Heck yes</h1>
 <Pie v-if="loaded"
-id="my-chart2-id"
-    :options="chartOptions"
-    :data="chartData"
+    :options="options"
+    :data="data"
   />
 </template>
 
 <script>
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+
 ChartJS.register(Tooltip, Legend,
   ArcElement)
 
@@ -72,22 +72,22 @@ export default {
   async mounted() {
     try {
       const res = await fetch(
-        'https://data.cityofnewyork.us/resource/h9gi-nx95.json'
+        'https://data.cityofnewyork.us/resource/qm5f-frjb.json'
       )
       let data = await res.json()
-      const brooklyn = data.filter((Bourough) => Bourough.bourough === 'BROOKLYN')
+      const brooklyn = data.filter((borough) => borough.brooklyn === 'BROOKLYN')
       this.chartData.datasets[0].data.push(brooklyn.length)
 
-      const bronx = data.filter((Bourough) => Bourough.bourough === 'BRONX')
+      const bronx = data.filter((borough) => borough.borough === 'BRONX')
       this.chartData.datasets[0].data.push(bronx.length)
 
-      const manhattan = data.filter((Bourough) => Bourough.bourough === 'MANHATTAN')
+      const manhattan = data.filter((borough) => borough.borough === 'MANHATTAN')
       this.chartData.datasets[0].data.push(manhattan.length)
 
-      const queens = data.filter((Bourough) => Bourough.bourough === 'QUEENS')
+      const queens = data.filter((borough) => borough.borough === 'QUEENS')
       this.chartData.datasets[0].data.push(queens.length)
 
-      const si = data.filter((Bourough) => Bourough.bourough === 'STATEN ISLAND'
+      const si = data.filter((borough) => borough.borough === 'STATEN ISLAND'
       )
       this.chartData.datasets[0].data.push(si.length)
 
