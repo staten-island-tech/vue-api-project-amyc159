@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CrashData from '../views/CrashData.vue'
 import BarChart from '../views/BarChart.vue'
-import DoughNut from '../views/DoughNut.vue'
+import Pie from '../views/PieChart2.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,9 +23,9 @@ const router = createRouter({
       component: BarChart
     },
     {
-      path: '/doughnut',
-      name: 'DoughNut',
-      component: DoughNut
+      path: '/pie',
+      name: 'Pie',
+      component: Pie
     }
   ]
 })
