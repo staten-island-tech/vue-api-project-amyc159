@@ -49,8 +49,21 @@
             let data = await response.json()
             
             const brooklyn = data.filter((location) => location.borough === 'BROOKLYN')
-            this.chartData.datasets[0].DataTransfer.pushScopeId(brooklyn.length
-            )
+            this.chartData.datasets[0].data.push(brooklyn.length)
+
+            const manhattan = data.filter((location) => location.borough === 'MANHATTAN')
+            this.chartData.datasets[0].data.push(manhattan.length)
+
+            const statenisland = data.filter((location) => location.borough === 'STATEN ISLAND')
+            this.chartData.datasets[0].data.push(statenisland.length)
+
+            const bronx = data.filter((location) => location.borough === 'BRONX')
+            this.chartData.datasets[0].data.push(bronx.length)
+
+            const queens = data.filter((location) => location.borough === 'QUEENS')
+            this.chartData.datasets[0].data.push(queens.length)
+
+
         }catch (e) {
             console.error(e)
         }
