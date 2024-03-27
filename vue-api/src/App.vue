@@ -5,8 +5,8 @@
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/crashdata">Data</RouterLink>
-        <RouterLink to="/bar">Bar Chart</RouterLink>
-        <RouterLink to="/pie">Doughnut graph</RouterLink>
+        <RouterLink to="/bar">Leading Cause of Death</RouterLink>
+        <RouterLink to="/pie">also leading cause but in a pie chart</RouterLink>
       </nav>
     </div>
   </header>
