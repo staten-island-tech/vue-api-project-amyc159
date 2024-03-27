@@ -45,25 +45,28 @@
     },
     async mounted() {
         try {
-            const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
-            let data = await response.json()
+            // const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
+            // let data = await response.json()
             
-            const brooklyn = data.filter((location) => location.borough === 'BROOKLYN')
-            this.chartData.datasets[0].data.push(brooklyn.length)
+            // const brooklyn = data.filter((location) => location.borough === 'BROOKLYN')
+            // this.chartData.datasets[0].data.push(brooklyn.length)
 
-            const manhattan = data.filter((location) => location.borough === 'MANHATTAN')
-            this.chartData.datasets[0].data.push(manhattan.length)
+            // const manhattan = data.filter((location) => location.borough === 'MANHATTAN')
+            // this.chartData.datasets[0].data.push(manhattan.length)
 
-            const statenisland = data.filter((location) => location.borough === 'STATEN ISLAND')
-            this.chartData.datasets[0].data.push(statenisland.length)
+            // const statenisland = data.filter((location) => location.borough === 'STATEN ISLAND')
+            // this.chartData.datasets[0].data.push(statenisland.length)
 
-            const bronx = data.filter((location) => location.borough === 'BRONX')
-            this.chartData.datasets[0].data.push(bronx.length)
+            // const bronx = data.filter((location) => location.borough === 'BRONX')
+            // this.chartData.datasets[0].data.push(bronx.length)
 
-            const queens = data.filter((location) => location.borough === 'QUEENS')
-            this.chartData.datasets[0].data.push(queens.length)
+            // const queens = data.filter((location) => location.borough === 'QUEENS')
+            // this.chartData.datasets[0].data.push(queens.length)
 
+            const response = await ('https://data.cityofnewyork.us/resource/32y8-s55c.json')
+            let data = await response.json()
 
+            
         }catch (e) {
             console.error(e)
         }
