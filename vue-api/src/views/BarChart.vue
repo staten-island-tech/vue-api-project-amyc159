@@ -1,13 +1,13 @@
 <template>
-    <h1>Car Wham Whams</h1>
+    <h1>Line of Duty Deaths</h1>
   <Bar
-      id="my-chart-id"
-      :options="chartOptions"
+      v-if="loaded"
       :data="chartData"
     />
   </template>
   
   <script>
+  import { ref, onMounted } from 'vue'
   import { Bar } from 'vue-chartjs'
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
   ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
@@ -16,17 +16,19 @@
     name: 'BarChart',
     components: { Bar },
     data() {
-      return {
+        return{
+        loaded: ref(false),
         chartData: {
             labels: [ 
-                'Brooklyn',
-                'Bronx', 
-                'Queens', 
-                'Manhattan', 
-                'Staten Island' 
+                'Firefighters',
+                'Captains', 
+                'Lieutenants', 
+                'Batallion Chief', 
+                'Engineer',
+                'Assistant Engineer' 
             ],
             datasets: [{ 
-                label: 'Number of Accidents in Each Borough',
+                label: 'Number of Deaths',
                 data: [], 
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -34,43 +36,47 @@
                     'rgba(255, 205, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-              ],
+                    'rgba(50, 150, 100, 0.2)',
+              ]
           }]
-          
-        },
-        chartOptions: {
-          responsive: true
         }
-      }
-    },
-    async mounted() {
+       }
+      }, 
+    async getData(){
         try {
-            // const response = await fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
-            // let data = await response.json()
-            
-            // const brooklyn = data.filter((location) => location.borough === 'BROOKLYN')
-            // this.chartData.datasets[0].data.push(brooklyn.length)
+            this.loaded.value = false
+            const res = await fetch('https://data.cityofnewyork.us/resource/32y8-s55c.json')
+            let data = await res.json()
+            console.log(data)
+            const firefighter = data.filter((person) => person.rank === 'FIREFIGHTER')
+            this.datasets.data.value.push(firefighter.length)
 
-            // const manhattan = data.filter((location) => location.borough === 'MANHATTAN')
-            // this.chartData.datasets[0].data.push(manhattan.length)
+            const captain = data.filter((person) => person.rank === 'CAPTAIN')
+            this.datasets.data.value.push(captain.length)
 
-            // const statenisland = data.filter((location) => location.borough === 'STATEN ISLAND')
-            // this.chartData.datasets[0].data.push(statenisland.length)
+            const lieutenant = data.filter((person) => person.rank === 'LIEUTENANT')
+            this.datasets.data.value.push(lieutenant.length)
 
-            // const bronx = data.filter((location) => location.borough === 'BRONX')
-            // this.chartData.datasets[0].data.push(bronx.length)
+            const batallion = data.filter((person) => person.rank === 'BATALLION CHIEF')
+            this.datasets.data.value.push(batallion.length)
 
-            // const queens = data.filter((location) => location.borough === 'QUEENS')
-            // this.chartData.datasets[0].data.push(queens.length)
+            const engineer = data.filter((person) => person.rank === 'ENGINEER')
+            this.datasets.data.value.push(engineer.length)
 
-            const response = await ('https://data.cityofnewyork.us/resource/32y8-s55c.json')
-            let data = await response.json()
+            const assistant = data.filter((person) => person.rank === 'ASSISTANT ENGINEER')
+            this.datasets.data.value.push(assistant.length)
 
-            
+            this.loaded.valueOf = true;
         }catch (e) {
             console.error(e)
         }
-        console.log(this.chartData)
+    },
+     onMounted(getData){
+        return{
+            loaded,
+            chartData,
+        }
+     }
     }
-  }
+
   </script>
