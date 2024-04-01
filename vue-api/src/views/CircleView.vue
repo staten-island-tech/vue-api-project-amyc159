@@ -69,19 +69,19 @@ export default {
       this.chartData.datasets[0].data.push(firefighter.length)
 
       const captain = data.filter((person) => person.rank === 'CAPTAIN')
-      this.datasets.data.value.push(captain.length)
+      this.chartData.datasets[0].data.push(captain.length)
       
       const lieutenant = data.filter((person) => person.rank === 'LIEUTENANT')
-      this.datasets.data.value.push(lieutenant.length)
+      this.chartData.datasets[0].data.push(lieutenant.length)
       
       const batallion = data.filter((person) => person.rank === 'BATALLION CHIEF')
-      this.datasets.data.value.push(batallion.length)
+      this.chartData.datasets[0].data.push(batallion.length)
       
       const engineer = data.filter((person) => person.rank === 'ENGINEER')
-      this.datasets.data.value.push(engineer.length)
+      this.chartData.datasets[0].data.push(engineer.length)
       
       const assistant = data.filter((person) => person.rank === 'ASSISTANT ENGINEER')
-      this.datasets.data.value.push(assistant.length)
+      this.chartData.datasets[0].data.push(assistant.length)
 
       this.loaded = true
     } catch (e) {

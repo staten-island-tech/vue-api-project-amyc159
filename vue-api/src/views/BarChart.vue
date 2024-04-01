@@ -78,16 +78,15 @@
         }
      }
     }
-
 </script> -->
-  
+
 <template>
 <h1>Line of Duty Deaths</h1>
     <div class="chart">
         <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
     </div>
 </template>
-
+    
 <script>
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
@@ -95,8 +94,8 @@ import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Li
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
-  name: 'BarView',
-  components: { Bar },
+  name: 'PieView',
+  components: { Pie },
   props: {
     chartOptions: {
       type: Object,
@@ -122,7 +121,7 @@ export default {
           'Engineer',
           'Assistant Engineer'
         ],
-        datasets: [
+           datasets: [
           {
             label: 'Number of Deaths',
             data: []
@@ -147,25 +146,25 @@ export default {
     try {
       const res = await fetch('https://data.cityofnewyork.us/resource/32y8-s55c.json')
       let data = await res.json()
-
+    
       const firefighter = data.filter((person) => person.rank === 'FIREFIGHTER')
       this.chartData.datasets[0].data.push(firefighter.length)
-
+    
       const captain = data.filter((person) => person.rank === 'CAPTAIN')
-      this.datasets.data.value.push(captain.length)
-      
+      this.chartData.datasets[0].data.push(captain.length)
+          
       const lieutenant = data.filter((person) => person.rank === 'LIEUTENANT')
-      this.datasets.data.value.push(lieutenant.length)
-      
+      this.chartData.datasets[0].data.push(lieutenant.length)
+          
       const batallion = data.filter((person) => person.rank === 'BATALLION CHIEF')
-      this.datasets.data.value.push(batallion.length)
-      
+      this.chartData.datasets[0].data.push(batallion.length)
+          
       const engineer = data.filter((person) => person.rank === 'ENGINEER')
-      this.datasets.data.value.push(engineer.length)
-      
+      this.chartData.datasets[0].data.push(engineer.length)
+          
       const assistant = data.filter((person) => person.rank === 'ASSISTANT ENGINEER')
-      this.datasets.data.value.push(assistant.length)
-
+      this.chartData.datasets[0].data.push(assistant.length)
+    
       this.loaded = true
     } catch (e) {
       console.error(e)
