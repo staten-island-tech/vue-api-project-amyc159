@@ -1,5 +1,5 @@
 <template>
-<h1>Line of Duty Deaths</h1>
+<h1>FDNY Line of Duty Deaths</h1>
     <div class="chart">
         <Pie v-if="loaded" :data="chartData" :options="chartOptions" />
     </div>
@@ -35,7 +35,7 @@ export default {
           'Firefighter',
           'Captain',
           'Lieutenant',
-          'Batallion Cheif',
+          'Batallion Chief',
           'Engineer',
           'Assistant Engineer'
         ],
@@ -92,3 +92,6 @@ export default {
 }
 </script>
 
+<style scoped>
+
+</style>
