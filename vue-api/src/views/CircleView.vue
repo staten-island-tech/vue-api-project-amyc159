@@ -35,7 +35,7 @@ export default {
           'Firefighter',
           'Captain',
           'Lieutenant',
-          'Batallion Chief',
+          'Battalion Chief',
           'Engineer',
           'Assistant Engineer'
         ],
@@ -74,8 +74,8 @@ export default {
       const lieutenant = data.filter((person) => person.rank === 'LIEUTENANT')
       this.chartData.datasets[0].data.push(lieutenant.length)
       
-      const batallion = data.filter((person) => person.rank === 'BATALLION CHIEF')
-      this.chartData.datasets[0].data.push(batallion.length)
+      const battalion = data.filter((person) => person.rank === 'BATTALION CHIEF')
+      this.chartData.datasets[0].data.push(battalion.length)
       
       const engineer = data.filter((person) => person.rank === 'ENGINEER')
       this.chartData.datasets[0].data.push(engineer.length)
